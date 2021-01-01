@@ -1,0 +1,21 @@
+.navbar{
+		background-color:#7F38EC;
+		color:#FFFFFF; 
+		font-size: 15px;
+		border:0;
+		padding: 10px;
+	}
+body, html {
+			height: 100%;
+ 			width: 100%;
+			}
+body{
+	background-image: linear-gradient(rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5)),url('/static/picture/JOURNEY.jpg');
+	background-size: cover; 
+	background-repeat: no-repeat;
+	}
+
+p{
+	color: white;
+	font-size: 16px;
+}

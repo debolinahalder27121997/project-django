@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LOGIN PAGE</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+  <script type="text/javascript" src="{% static '/js/login_validate.js' %} "></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Font Awsome -->
+  <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+  <!-- NAVBAR -->
+
+    <nav class="navbar navbar-inverse">  <!-- navbar-default -->
+      <div class="container">
+        <div class="navbar-header"></div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/"><i class="fa fa-home"></i>&nbsp&nbspHOME</a></li>
+          <li><a class="active "href="#"><i class="fa fa-unlock"></i>&nbsp&nbsp</a></li>
+        </ul>
+      </div>
+    </nav>
+<div class="overlay">
+<!-- LOGN IN FORM  -->
+<form class="form-horizontal" action="/login" method="POST" name="myform" onsubmit="return loggin()">
+  {% csrf_token %}
+   <!--   con = Container  for items in the form-->
+   <div class="con">
+   <!--     Start  header Content  -->
+   <header class="head-form">
+      <h2>Log In</h2>
+      <!--     A welcome message or an explanation of the login form -->
+      <p>Login here using your username and password</p>
+   </header>
+   <!--     End  header Content  -->
+   <br>
+   <div class="field-set">
+     
+      <!--   user name -->
+         <span class="input-item">
+           <i class="fa fa-user-circle"></i>
+         </span>
+        <!--   user name Input-->
+         <input class="form-input" id="txt-input" name="name" type="text" placeholder="@UserName">
+     
+      <br>
+     
+           <!--   Password -->
+     
+      <span class="input-item">
+        <i class="fa fa-key"></i>
+       </span>
+      <!--   Password Input-->
+      <input class="form-input" type="password" placeholder="Password" id="pwd"  name="pass">
+     
+     <br>
+      <br>
+<!--        buttons -->
+<!--      button LogIn -->
+      <button class="btn btn-info" type="submit"> Log In </button>
+   </div>
+  
+<!--   other buttons -->
+   <div class="other">
+<!--      Forgot Password button-->
+
+    <label class="frgt-pass"><a href="/forgotpass">Forgot Password</a></label>
+      
+<!--      End Other the Division -->
+   </div>
+     
+<!--   End Conrainer  -->
+  </div>
+  
+  <!-- End Form -->
+</form>
+</div>
+</body>
+</html>

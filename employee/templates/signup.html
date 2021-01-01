@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sign up</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+  <script type="text/javascript" src="{% static '/js/signup.js' %}"></script>
+
+<!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Font Awsome -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+	<style type="text/css">
+  a{
+  	display:block;
+  	padding:028;
+  	color:#fff;
+  	text-decoration:none;
+  }
+
+ a:hover,.active a{
+    background-color:#156ee2;
+  }
+
+  body{
+  		background-image: linear-gradient(rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5)),url('/static/picture/emp7.jpg');
+  		background-repeat: no-repeat;
+  		background-size:cover;
+  		font-family:Arial;
+  }
+
+  h2{
+  		text-align:center;
+  }
+
+input{
+  		width:100%;
+  		box-sizing: border-box;
+  		padding:12px 5px;
+  		background:rgpa(0,0,0,0.10)
+  		outline:none;
+  		border:none;
+  		border-bottom:1px dotted #fff;
+  		color:#000;
+  		border-radius:5px;
+  		margin:5px;
+  		font-weight:bold;
+}
+
+  input[type=submit]{
+  		width:100%;
+  		box-sizing:border-box;
+  		padding:10px 0;
+  		outline:none;
+  		border:none;
+  		background:#60adde;
+  		opacity:0.7;
+  		border-radius:20px;
+  		font-size:20px;
+  		color:#fff;
+  }
+  input[type=submit]:hover{
+  		background:#003366;
+  		opacity:0.7;
+  }
+</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">  <!-- navbar-default -->
+       	<div class="container">
+        	<ul class="nav navbar-nav navbar-right">
+            	<li> <a href="/"><i class="fa fa-home"></i>&nbsp&nbspHOME</a></li>
+                <li><a class="active "href="/log"><i class="fa fa-unlock"></i>&nbsp&nbspLOGIN</a></li>
+            </ul>
+       	</div>
+	</nav>
+
+	{% if error %}
+		user name does not exist.<br>
+		at first you have to signup
+	{% endif %}
+  
+	<h2>Sign up</h2>
+	<form class="form-horizontal" action="/signup" method="POST" name="myform2" onsubmit="return signnup()">
+	{% csrf_token %}
+		<input type="text" placeholder="Username" name="uname" >
+		<input type="text" placeholder="First name" name="fname" >
+		<input type="text" placeholder="Last name" name="lname" >
+		<input type="text" placeholder="Email id" name="email" >
+		<input type="password" placeholder="Password" name="pass">
+		<input type="submit" value="SUBMIT">
+	</form>
+</body>
+</html>

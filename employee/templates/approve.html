@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>leave detail</title>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+#navbar1{
+        margin-bottom:0;
+        border-radius:0;
+        background-color:black;
+        color:white; 
+        padding:1% 0;
+        font-size: 15px;
+        border:0;
+    }
+    .navbar-brand{
+        float:left;
+        min-height:55px;
+        padding:0 15px 5px;
+    }
+    .navbar-inverse.navbar-nav.active a,.navbar-inverse.navbar-nav.active a:focus,.navbar-inverse.navbar-nav.active a:hover{
+        color:#FFFFFF;
+        background-color: #7F38EC;
+    }
+    .navbar-inverse .navbar-nav li a{
+        color:#D5D5D5;
+    }
+</style>
+</head>
+     
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-inverse" id="navbar1">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">MY COMPANY</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/"><i class="fa fa-home"></i>&nbsp&nbspHOME</a></li>
+                <li><a href="/profile"><i class="fa fa-id-badge"></i>&nbsp&nbspPROFILE</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="w3-row-padding w3-light-grey w3-padding-64" id="approveleave">
+        <div class="w3-content">
+            <div class="w3-container" style="">
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                <h1>Approve Leave</h1>
+                <table class="w3-table-all" action="ApproveLeave"  method="post">
+                    <thead>
+                        <tr class="w3-blue">
+                            <th style="display:none;">EmpLeave_Req_ID</th>
+                            <th>Eid</th>
+                            <th>Reason</th>
+                            <th>Leave Type</th>
+                            <th>Begin Date</th>
+                            <th>End Date</th>
+                            <th>Requested Days</th>
+                            <th>Approve</th>
+                            <th>Decline</th>
+                        </tr>
+                    </thead>
+                        {% for info in info %}
+                            
+                            <tr>
+                                <td>{{info.eid_id}}</td>
+                                <td>{{info.reason}}</td>
+                                <td>{{info.leave_type}}</td>
+                                <td>{{info.sdate}}</td>
+                                <td>{{info.edate}}</td>
+                                <td style="text-align: center">{{info.total_leave}}</td>
+                                <td><a href="/approveleave/{{info.id}}">Approval</a></td>
+                                <td><a href="/declineleave/{{info.id}}">Decline</a></td>
+                            </tr>
+                        {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

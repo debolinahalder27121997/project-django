@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>my</title>
+    {% load static %}
+  <link rel="stylesheet" type="text/css" href="/static/css/leave.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Font Awsome -->
+  <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+
+</style>
+</head>
+<body>
+   <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+         <a href="#" class="navbar-brand">MY COMPANY</a>
+      </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/profile"><i class="fa fa-id-badge"></i>&nbsp&nbsp&nbspPROFILE</a></li>
+          <li> <a href="#"><i class="fa fa-address-book"></i>&nbsp&nbsp&nbspCONTACT</a></li>
+        </ul>
+      </div>
+  </nav>
+  <div class="row" style="background-image: linear-gradient(-195deg, #E3FDF5 50%, #FFE6FA 50%)">
+    <div class="col-lg-4" style="text-align:center;">
+          <br><br>
+          <img src="{{emp.pic.url}}" class="avatar img-circle img-thumbnail" alt="avatar" style="width:200px;height: 200px">
+    </div>
+    <div class="col-lg-8">
+      <div class="panel-body">
+        <fieldset>
+          <legend>Employee name</legend>
+            <form action="/leaveapply" class="form-wrapper" method="POST" >
+                {% csrf_token %}
+                <div class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" role="tab"><span>Employee:</span><input type="text" name="name" placeholder="{{user.first_name}} {{user.last_name}}" readonly></div>
+                <br>
+                <div class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" role="tab"><span>Start Date:</span><input type="Date" name="sdate" placeholder="enter starting day of leave"></div>
+                <br>
+                <div class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"  role="tab"><span>End Date:</span><input type="Date" name="edate" placeholder="enter last date of leave"></div>
+                <br>
+                <div class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"  role="tab"><span>Duration:</span><input type="number" name="total_leave" placeholder="enter leave duration"></div>
+                <br>
+                <div class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" role="tab"><span>Type:</span><input type="text" name="leave_type" placeholder="enter leave type"></div>
+                <br>
+                <div class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" role="tab"><span>Reason:</span><input type="text" name="reason" placeholder="enter reason of leave">
+                </div>
+
+                <div class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" role="tab">
+                  <span><button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Apply</button></span>
+                </div>
+            </form>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
